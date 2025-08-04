@@ -16,7 +16,8 @@ package omoikane.elearning.Controlador;
 import omoikane.elearning.Modelo.Estudiante;
 import omoikane.elearning.Modelo.Progreso;
 import omoikane.elearning.Modelo.RutaAprendizaje;
-//import omoikane.elearning.Modelo.Dao.ProgresoDAO;
+import omoikane.elearning.Modelo.Dao.ProgresoDAO;
+import omoikane.elearning.Modelo.PadreDeFamilia;
 //import omoikane.elearning.Modelo.Patterns.Observer.PadreFamilia;
 import omoikane.elearning.Modelo.Patterns.Observer.ProgresoNotificador;
 import omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaAvanzada;
@@ -28,7 +29,7 @@ import omoikane.elearning.Modelo.Patterns.Estrategy.MotorRutaAprendizaje;
  * @author aczay
  */
 public class ControladorProgreso {
-        private ProgresoDAO progresoDAO;
+    private ProgresoDAO progresoDAO;
     private MotorRutaAprendizaje motorRuta;
     private ProgresoNotificador notificador;
 
