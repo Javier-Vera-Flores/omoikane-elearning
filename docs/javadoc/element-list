@@ -1,0 +1,8 @@
+omoikane.elearning
+omoikane.elearning.Controlador
+omoikane.elearning.Modelo
+omoikane.elearning.Modelo.Dao
+omoikane.elearning.Modelo.Patterns.Estrategy
+omoikane.elearning.Modelo.Patterns.Factory
+omoikane.elearning.Modelo.Patterns.Observer
+omoikane.elearning.Vista
