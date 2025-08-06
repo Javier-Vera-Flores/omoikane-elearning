@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="omoikane-elearning">
+  <ClassDiagramComponents>
+    <Class name="ControladorProgreso" package="omoikane.elearning.Controlador" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="progresoDAO" type="ProgresoDAO" visibility="private"/>
+        <Field name="motorRuta" type="MotorRutaAprendizaje" visibility="private"/>
+        <Field name="notificador" type="ProgresoNotificador" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ProgresoDAO" name="progresoDAO"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="actualizarProgreso" returnType="void" visibility="public">
+          <Argument type="Estudiante" name="estudiante"/>
+          <Argument type="double" name="puntaje"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControladorTareas" package="omoikane.elearning.Controlador" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="tareaDAO" type="TareaDAO" visibility="private"/>
+        <Field name="calificacionDAO" type="CalificacionDAO" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="TareaDAO" name="tareaDAO"/>
+          <Argument type="CalificacionDAO" name="calificacionDAO"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="crearTarea" returnType="void" visibility="public">
+          <Argument type="String" name="tipo"/>
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="calificarTarea" returnType="void" visibility="public">
+          <Argument type="int" name="tareaId"/>
+          <Argument type="Estudiante" name="estudiante"/>
+          <Argument type="int" name="valor"/>
+        </Method>
+        <Method name="getTareas" returnType="List&lt;Tarea&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Calificacion" package="omoikane.elearning.Modelo" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="int" name="valor"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CalificacionDAO" package="omoikane.elearning.Modelo.Dao" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="calificaciones" type="List&lt;Calificacion&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getById" returnType="Calificacion" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getAll" returnType="List&lt;Calificacion&gt;" visibility="public"/>
+        <Method name="insert" returnType="void" visibility="public">
+          <Argument type="Calificacion" name="entity"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="Calificacion" name="entity"/>
+        </Method>
+        <Method name="delete" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DBManager" package="omoikane.elearning.Modelo.Dao" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="instance" type="DBManager" visibility="private" isStatic="true"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="DBManager" visibility="public" isStatic="true"/>
+        <Method name="getConnection" returnType="Connection" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="IDAO" package="omoikane.elearning.Modelo.Dao" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Methods>
+        <Method name="getById" returnType="T" visibility="package">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getAll" returnType="List&lt;T&gt;" visibility="package"/>
+        <Method name="insert" returnType="void" visibility="package">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="package">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="delete" returnType="void" visibility="package">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="ProgresoDAO" package="omoikane.elearning.Modelo.Dao" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="progresos" type="List&lt;Progreso&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getById" returnType="Progreso" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getAll" returnType="List&lt;Progreso&gt;" visibility="public"/>
+        <Method name="insert" returnType="void" visibility="public">
+          <Argument type="Progreso" name="entity"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="Progreso" name="entity"/>
+        </Method>
+        <Method name="delete" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TareaDAO" package="omoikane.elearning.Modelo.Dao" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="tareas" type="List&lt;Tarea&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getById" returnType="Tarea" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getAll" returnType="List&lt;Tarea&gt;" visibility="public"/>
+        <Method name="insert" returnType="void" visibility="public">
+          <Argument type="Tarea" name="entity"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="Tarea" name="entity"/>
+        </Method>
+        <Method name="delete" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Estudiante" package="omoikane.elearning.Modelo" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Examen" package="omoikane.elearning.Modelo" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_tarea"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calificar" returnType="Calificacion" visibility="public">
+          <Argument type="Estudiante" name="estudiante"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PadreDeFamilia" package="omoikane.elearning.Modelo" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="actualizar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EstrategiaAvanzada" package="omoikane.elearning.Modelo.Patterns.Estrategy" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularRuta" returnType="RutaAprendizaje" visibility="public">
+          <Argument type="Progreso" name="progreso"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="EstrategiaBasica" package="omoikane.elearning.Modelo.Patterns.Estrategy" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularRuta" returnType="RutaAprendizaje" visibility="public">
+          <Argument type="Progreso" name="progreso"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="EstrategiaDeAprendizaje" package="omoikane.elearning.Modelo.Patterns.Estrategy" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Methods>
+        <Method name="calcularRuta" returnType="RutaAprendizaje" visibility="package">
+          <Argument type="Progreso" name="progreso"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="MotorRutaAprendizaje" package="omoikane.elearning.Modelo.Patterns.Estrategy" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="estrategia" type="EstrategiaDeAprendizaje" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setEstrategia" returnType="void" visibility="public">
+          <Argument type="EstrategiaDeAprendizaje" name="estrategia"/>
+        </Method>
+        <Method name="ejecutarEstrategia" returnType="RutaAprendizaje" visibility="public">
+          <Argument type="Progreso" name="progreso"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ExamenFactory" package="omoikane.elearning.Modelo.Patterns.Factory" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearTarea" returnType="Tarea" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="TareaFactory" package="omoikane.elearning.Modelo.Patterns.Factory" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Methods>
+        <Method name="crearTarea" returnType="Tarea" visibility="package">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="TareaPracticaFactory" package="omoikane.elearning.Modelo.Patterns.Factory" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearTarea" returnType="Tarea" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Observador" package="omoikane.elearning.Modelo.Patterns.Observer" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Methods>
+        <Method name="actualizar" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="ProgresoNotificador" package="omoikane.elearning.Modelo.Patterns.Observer" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields>
+        <Field name="observadores" type="List&lt;Observador&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="registrar" returnType="void" visibility="public">
+          <Argument type="Observador" name="observador"/>
+        </Method>
+        <Method name="notificar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Progreso" package="omoikane.elearning.Modelo" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="i"/>
+          <Argument type="double" name="puntaje"/>
+          <Argument type="int" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RutaAprendizaje" package="omoikane.elearning.Modelo" visibility="public" xPosition="1520.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Tarea" package="omoikane.elearning.Modelo" visibility="public" isAbstract="true" xPosition="1820.0" yPosition="820.0">
+      <Fields>
+        <Field name="id_tarea" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_tarea"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId_tarea" returnType="int" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="calificar" returnType="Calificacion" visibility="public" isAbstract="true">
+          <Argument type="Estudiante" name="estudiante"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TareaPractica" package="omoikane.elearning.Modelo" visibility="public" xPosition="2120.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id_tarea"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calificar" returnType="Calificacion" visibility="public">
+          <Argument type="Estudiante" name="estudiante"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OmoikaneElearning" package="omoikane.elearning" visibility="public" xPosition="20.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Vista" package="omoikane.elearning.Vista" visibility="public" xPosition="320.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="VistaAsesor" package="omoikane.elearning.Vista" visibility="public" xPosition="620.0" yPosition="1220.0">
+      <Fields>
+        <Field name="controladorProgreso" type="ControladorProgreso" visibility="private"/>
+        <Field name="controladorTareas" type="ControladorTareas" visibility="private"/>
+        <Field name="scanner" type="Scanner" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ControladorProgreso" name="cp"/>
+          <Argument type="ControladorTareas" name="ct"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarMenu" returnType="void" visibility="public"/>
+        <Method name="actualizarProgresoUI" returnType="void" visibility="private"/>
+        <Method name="crearTareaUI" returnType="void" visibility="private"/>
+        <Method name="calificarTareaUI" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="VistaEstudiante" package="omoikane.elearning.Vista" visibility="public" xPosition="920.0" yPosition="1220.0">
+      <Fields>
+        <Field name="controladorTareas" type="ControladorTareas" visibility="private"/>
+        <Field name="scanner" type="Scanner" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ControladorTareas" name="ct"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarMenu" returnType="void" visibility="public"/>
+        <Method name="verTareasUI" returnType="void" visibility="private"/>
+        <Method name="entregarTareaUI" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaBasica" target="omoikane.elearning.Modelo.RutaAprendizaje" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Factory.TareaFactory" target="omoikane.elearning.Modelo.Tarea" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="controladorTareas" source="omoikane.elearning.Vista.VistaAsesor" target="omoikane.elearning.Controlador.ControladorTareas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaAvanzada" target="omoikane.elearning.Modelo.RutaAprendizaje" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Examen" target="omoikane.elearning.Modelo.Estudiante" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="estrategia" source="omoikane.elearning.Modelo.Patterns.Estrategy.MotorRutaAprendizaje" target="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaDeAprendizaje" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Controlador.ControladorProgreso" target="omoikane.elearning.Modelo.Estudiante" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="omoikane.elearning.Modelo.Dao.CalificacionDAO" target="omoikane.elearning.Modelo.Dao.IDAO"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaBasica" target="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaDeAprendizaje"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="omoikane.elearning.Modelo.Patterns.Factory.ExamenFactory" target="omoikane.elearning.Modelo.Patterns.Factory.TareaFactory"/>
+    <HasRelation name="observadores" source="omoikane.elearning.Modelo.Patterns.Observer.ProgresoNotificador" target="omoikane.elearning.Modelo.Patterns.Observer.Observador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Observador&gt;"/>
+    <HasRelation name="controladorTareas" source="omoikane.elearning.Vista.VistaEstudiante" target="omoikane.elearning.Controlador.ControladorTareas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Estrategy.MotorRutaAprendizaje" target="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaDeAprendizaje" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="controladorProgreso" source="omoikane.elearning.Vista.VistaAsesor" target="omoikane.elearning.Controlador.ControladorProgreso" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instance" source="omoikane.elearning.Modelo.Dao.DBManager" target="omoikane.elearning.Modelo.Dao.DBManager" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaAvanzada" target="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaDeAprendizaje"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="omoikane.elearning.Modelo.Patterns.Factory.TareaPracticaFactory" target="omoikane.elearning.Modelo.Patterns.Factory.TareaFactory"/>
+    <HasRelation name="progresos" source="omoikane.elearning.Modelo.Dao.ProgresoDAO" target="omoikane.elearning.Modelo.Progreso" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Progreso&gt;"/>
+    <UseRelation source="omoikane.elearning.Modelo.Dao.ProgresoDAO" target="omoikane.elearning.Modelo.Progreso" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="omoikane.elearning.Modelo.TareaPractica" target="omoikane.elearning.Modelo.Tarea"/>
+    <UseRelation source="omoikane.elearning.Modelo.TareaPractica" target="omoikane.elearning.Modelo.Estudiante" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="notificador" source="omoikane.elearning.Controlador.ControladorProgreso" target="omoikane.elearning.Modelo.Patterns.Observer.ProgresoNotificador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Dao.DBManager" target="omoikane.elearning.Modelo.Dao.DBManager" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="omoikane.elearning.Modelo.PadreDeFamilia" target="omoikane.elearning.Modelo.Patterns.Observer.Observador"/>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Estrategy.MotorRutaAprendizaje" target="omoikane.elearning.Modelo.RutaAprendizaje" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Tarea" target="omoikane.elearning.Modelo.Estudiante" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="progresoDAO" source="omoikane.elearning.Controlador.ControladorProgreso" target="omoikane.elearning.Modelo.Dao.ProgresoDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Factory.ExamenFactory" target="omoikane.elearning.Modelo.Tarea" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="calificacionDAO" source="omoikane.elearning.Controlador.ControladorTareas" target="omoikane.elearning.Modelo.Dao.CalificacionDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tareas" source="omoikane.elearning.Modelo.Dao.TareaDAO" target="omoikane.elearning.Modelo.Tarea" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Tarea&gt;"/>
+    <UseRelation source="omoikane.elearning.Modelo.Dao.TareaDAO" target="omoikane.elearning.Modelo.Tarea" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Observer.ProgresoNotificador" target="omoikane.elearning.Modelo.Patterns.Observer.Observador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Modelo.Dao.CalificacionDAO" target="omoikane.elearning.Modelo.Calificacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="calificaciones" source="omoikane.elearning.Modelo.Dao.CalificacionDAO" target="omoikane.elearning.Modelo.Calificacion" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Calificacion&gt;"/>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Factory.TareaPracticaFactory" target="omoikane.elearning.Modelo.Tarea" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="omoikane.elearning.Modelo.Dao.ProgresoDAO" target="omoikane.elearning.Modelo.Dao.IDAO"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="omoikane.elearning.Modelo.Dao.TareaDAO" target="omoikane.elearning.Modelo.Dao.IDAO"/>
+    <UseRelation source="omoikane.elearning.Controlador.ControladorTareas" target="omoikane.elearning.Modelo.Tarea" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tareaDAO" source="omoikane.elearning.Controlador.ControladorTareas" target="omoikane.elearning.Modelo.Dao.TareaDAO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="omoikane.elearning.Controlador.ControladorTareas" target="omoikane.elearning.Modelo.Estudiante" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="motorRuta" source="omoikane.elearning.Controlador.ControladorProgreso" target="omoikane.elearning.Modelo.Patterns.Estrategy.MotorRutaAprendizaje" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="omoikane.elearning.Modelo.Examen" target="omoikane.elearning.Modelo.Tarea"/>
+    <UseRelation source="omoikane.elearning.Modelo.Patterns.Estrategy.EstrategiaDeAprendizaje" target="omoikane.elearning.Modelo.RutaAprendizaje" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
