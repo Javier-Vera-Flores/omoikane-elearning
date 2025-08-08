@@ -24,5 +24,19 @@ public abstract class Tarea {
     public String getNombre() { return nombre; }
     public String getDescripcion() { return descripcion; }
 
+    public void setId_tarea(int id_tarea) {
+        this.id_tarea = id_tarea;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
+    
+
     public abstract Calificacion calificar(Estudiante estudiante);
 }

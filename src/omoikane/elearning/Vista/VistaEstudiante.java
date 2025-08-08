@@ -46,7 +46,7 @@ public class VistaEstudiante {
 
     private void verTareasUI() {
         System.out.println("--- Tareas Disponibles ---");
-        List<Tarea> tareas = controladorTareas.getTareas();
+        List<Tarea> tareas = controladorTareas.getTareas("");
         if (tareas.isEmpty()) {
             System.out.println("No hay tareas asignadas.");
         } else {
