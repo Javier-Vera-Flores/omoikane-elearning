@@ -3,6 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package omoikane.elearning.Controlador;
+//import com.omoikane.app.model.Estudiante;
+//import com.omoikane.app.model.Progreso;
+//import com.omoikane.app.model.RutaAprendizaje;
+//import com.omoikane.app.model.dao.ProgresoDAO;
+//import com.omoikane.app.model.patterns.observer.PadreDeFamilia; nop
+//import com.omoikane.app.model.patterns.observer.ProgresoNotificador;
+//import com.omoikane.app.model.patterns.strategy.EstrategiaAvanzada;
+//import com.omoikane.app.model.patterns.strategy.EstrategiaBasica;
+//import com.omoikane.app.model.patterns.strategy.MotorRutaAprendizaje;
 
 import omoikane.elearning.Modelo.Estudiante;
 import omoikane.elearning.Modelo.Progreso;
@@ -38,12 +47,12 @@ public class ControladorProgreso {
     public void actualizarProgreso(Estudiante estudiante, double puntaje) {
         System.out.println("Controlador: Recibida solicitud para actualizar progreso del estudiante " + estudiante.getNombre());
 
-        // Crear un objeto Progreso (simulado)
+        // 1. Crear un objeto Progreso (simulado)
         Progreso nuevoProgreso = new Progreso(1, puntaje, estudiante.getId());
         progresoDAO.insert(nuevoProgreso);
 
-        // Aplicar el patrón Strategy para la ruta de aprendizaje
-
+        // 2. Aplicar el patrón Strategy para la ruta de aprendizaje
+        // Aquí podríamos tener lógica para decidir qué estrategia usar
         if (puntaje > 80) {
             motorRuta.setEstrategia(new EstrategiaAvanzada());
         } else {
@@ -51,7 +60,7 @@ public class ControladorProgreso {
         }
         RutaAprendizaje ruta = motorRuta.ejecutarEstrategia(nuevoProgreso);
 
-        // Aplicar el patrón Observer para notificar al padre
+        // 3. Aplicar el patrón Observer para notificar al padre
         PadreDeFamilia padre = new PadreDeFamilia("Carlos"); // Simulamos un padre
         notificador.registrar(padre);
         notificador.notificar();
