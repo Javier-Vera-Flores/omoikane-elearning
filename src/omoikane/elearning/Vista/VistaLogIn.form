@@ -161,6 +161,14 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ingresa ID de usuario"/>
               </Properties>
+<<<<<<< HEAD
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="userTextMousePressed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="userTextKeyReleased"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="userTextKeyTyped"/>
+              </Events>
+=======
+>>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
             </Component>
             <Component class="javax.swing.JLabel" name="passLabel">
               <Properties>
@@ -184,6 +192,13 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="123456789"/>
               </Properties>
+<<<<<<< HEAD
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="passTextMousePressed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="passTextKeyTyped"/>
+              </Events>
+=======
+>>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
             </Component>
             <Component class="javax.swing.JButton" name="accederButton">
               <Properties>

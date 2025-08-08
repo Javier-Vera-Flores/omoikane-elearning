@@ -8,11 +8,11 @@ package omoikane.elearning.Modelo;
  *
  * @author aczay
  */
-public class Estudiante extends Usuario{
+public class Asesor extends Usuario{
     private int id;
     private String nombre;
 
-    public Estudiante(int id, String nombre) {
+    public Asesor(int id, String nombre) {
         super(id, nombre);
     }
 }

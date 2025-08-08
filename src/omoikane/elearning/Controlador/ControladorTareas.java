@@ -84,6 +84,22 @@ public class ControladorTareas {
         }
     }
     
+<<<<<<< HEAD
+    public void eliminarTarea(int index){
+        List<Tarea> tareas = getTareas("where id_asesor = " + tareaDAO.getIDUsuario());
+        int idTarea = tareas.get(index).getId_tarea();
+        
+        tareaDAO.delete(idTarea);
+    }
+
+    public List<Tarea> getTareas(String filtro) {
+        return tareaDAO.getAll(filtro);
+    }
+
+    public List<String> filtrarTareas() {
+        List<String> tareas = new ArrayList<>();
+        for (Tarea t : getTareas("where id_asesor = " + tareaDAO.getIDUsuario())) {
+=======
     public List<Tarea> getTareas(String filtro) {
         return tareaDAO.getAll(filtro);
     }
@@ -92,6 +108,7 @@ public class ControladorTareas {
         List<String> tareas = new ArrayList<>();
         for (Tarea t : getTareas("where id_asesor = " + tareaDAO.getIDUsuario())) {
             System.out.println(t.getId_tarea());
+>>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
             tareas.add(t.getNombre());
         }
         return tareas;

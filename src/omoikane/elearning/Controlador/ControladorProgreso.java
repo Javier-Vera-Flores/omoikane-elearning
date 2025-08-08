@@ -48,7 +48,7 @@ public class ControladorProgreso {
         System.out.println("Controlador: Recibida solicitud para actualizar progreso del estudiante " + estudiante.getNombre());
 
         // 1. Crear un objeto Progreso (simulado)
-        Progreso nuevoProgreso = new Progreso(1, puntaje, estudiante.getId());
+        Progreso nuevoProgreso = new Progreso(1, puntaje, estudiante.getId_usuario());
         progresoDAO.insert(nuevoProgreso);
 
         // 2. Aplicar el patrón Strategy para la ruta de aprendizaje
