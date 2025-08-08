@@ -25,7 +25,7 @@ public class CalificacionDAO implements IDAO<Calificacion>{
     }
 
     @Override
-    public List<Calificacion> getAll() {
+    public List<Calificacion> getAll(String filtro) {
         System.out.println("DAO: Obteniendo todas las calificaciones");
         return new ArrayList<>(calificaciones);
     }

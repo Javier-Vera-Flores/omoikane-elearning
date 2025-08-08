@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface IDAO <T>{
     T getById(int id);
-    List<T> getAll();
+    List<T> getAll(String filtro);
     void insert(T entity);
     void update(T entity);
     void delete(int id);

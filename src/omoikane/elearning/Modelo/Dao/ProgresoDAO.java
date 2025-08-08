@@ -21,7 +21,7 @@ public class ProgresoDAO implements IDAO<Progreso> {
     }
 
     @Override
-    public List<Progreso> getAll() {
+    public List<Progreso> getAll(String filtro) {
         System.out.println("DAO: Obteniendo todos los progresos");
         return new ArrayList<>(progresos);
     }

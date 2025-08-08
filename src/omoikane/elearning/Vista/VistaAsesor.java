@@ -70,7 +70,7 @@ public class VistaAsesor {
         String nombre = scanner.nextLine();
         System.out.print("Descripción: ");
         String descripcion = scanner.nextLine();
-        controladorTareas.crearTarea(tipo, id, nombre, descripcion);
+        //controladorTareas.crearTarea(tipo, id, nombre, descripcion);
     }
     
     private void calificarTareaUI() {
