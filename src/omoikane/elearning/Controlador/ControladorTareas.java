@@ -17,10 +17,7 @@ import java.util.List;
  *
  * @author aczay
  */
-/**
- * ControladorTareas maneja la lógica de negocio para la gestión de tareas y exámenes.
- * Actúa como intermediario entre las vistas y las clases del modelo.
- */
+
 public class ControladorTareas {
     private TareaDAO tareaDAO;
     private CalificacionDAO calificacionDAO;

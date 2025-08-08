@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -35,7 +35,7 @@ public class ProgresoDAO implements IDAO<Progreso> {
     @Override
     public void update(Progreso entity) {
         System.out.println("DAO: Actualizando progreso");
-        // Lógica de actualización simulada
+    
     }
 
     @Override

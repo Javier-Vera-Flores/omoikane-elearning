@@ -7,8 +7,6 @@ package omoikane.elearning.Modelo.Patterns.Observer;
 import java.util.ArrayList;
 import java.util.List;
 import omoikane.elearning.Modelo.PadreDeFamilia;
-//parece que no lo ocuparemos mas jeje
-//import com.omoikane.app.model.PadreDeFamilia;
 
 /**
  *

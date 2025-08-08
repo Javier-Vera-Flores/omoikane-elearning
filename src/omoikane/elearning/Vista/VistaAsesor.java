@@ -54,14 +54,14 @@ public class VistaAsesor {
         System.out.println("--- Actualizar Progreso ---");
         System.out.print("ID del Estudiante: ");
         int idEstudiante = Integer.parseInt(scanner.nextLine());
-        System.out.print("Puntaje del examen/tarea: ");
+        System.out.print("Puntaje del  examen/tarea: ");
         double puntaje = Double.parseDouble(scanner.nextLine());
-        Estudiante estudiante = new Estudiante(idEstudiante, "Estudiante Prueba " + idEstudiante); // Simulación
+        Estudiante estudiante = new Estudiante(idEstudiante, " Estudiante Prueba " + idEstudiante); // Simulación
         controladorProgreso.actualizarProgreso(estudiante, puntaje);
     }
     
     private void crearTareaUI() {
-        System.out.println("--- Crear Tarea ---");
+        System.out.println("-- Crear Tarea ---");
         System.out.print("Tipo de tarea (Examen/TareaPractica): ");
         String tipo = scanner.nextLine();
         System.out.print("ID de la nueva tarea: ");

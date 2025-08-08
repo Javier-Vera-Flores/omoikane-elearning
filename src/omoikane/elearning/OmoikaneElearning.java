@@ -38,12 +38,9 @@ public class OmoikaneElearning {
 
         System.out.println("Simulación del sistema Omoikane iniciada...");
         
-        // Aquí puedes simular la interacción del usuario
         // Por ejemplo, para el Asesor:
         vistaAsesor.mostrarMenu();
-
-        // Para el Estudiante (puedes ejecutarlo después del asesor):
-        // vistaEstudiante.mostrarMenu();
+        //vistaEstudiante.mostrarMenu();
         
     }
     
