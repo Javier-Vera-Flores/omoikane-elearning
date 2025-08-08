@@ -43,6 +43,7 @@ public class OmoikaneElearning {
         menuAsesor.setLocationRelativeTo(null);
         menuAsesor.setVisible(true);
         /*INTERFAZ*/
+        
     }
 
 }
