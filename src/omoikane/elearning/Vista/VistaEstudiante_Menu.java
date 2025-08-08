@@ -13,22 +13,16 @@ import omoikane.elearning.Controlador.ControladorTareas;
  *
  * @author ASUS
  */
-public class VistaAsesor_Menu extends javax.swing.JFrame {
+public class VistaEstudiante_Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form VistaMenuAsesor
      *
      * @param crearTarea
      */
-    private VistaAsesor_CrearTarea crearTarea;
-    private ControladorTareas controladorTareas;
 
-    public VistaAsesor_Menu(ControladorTareas controladorTareas) {
-        this.crearTarea = crearTarea;
-        this.controladorTareas = controladorTareas;
+    public VistaEstudiante_Menu() {
         initComponents();
-        limpiarModelo();
-        listaTareas();
     }
 
     /**
@@ -41,29 +35,25 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         bgPanel = new javax.swing.JPanel();
-        addTareaButton = new javax.swing.JButton();
+        entregarTareaButton = new javax.swing.JButton();
         salirButton = new javax.swing.JButton();
-        calificarButton = new javax.swing.JButton();
         bienvenidoLabel = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
         ListaPanel = new javax.swing.JPanel();
         listaLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tareasList = new javax.swing.JList<>();
-        eliminarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bgPanel.setBackground(new java.awt.Color(0, 153, 153));
 
-        addTareaButton.setBackground(new java.awt.Color(0, 153, 153));
-        addTareaButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        addTareaButton.setForeground(new java.awt.Color(255, 255, 255));
-        addTareaButton.setText("Crear Tarea");
-        addTareaButton.setBorder(null);
-        addTareaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        entregarTareaButton.setBackground(new java.awt.Color(0, 153, 153));
+        entregarTareaButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        entregarTareaButton.setForeground(new java.awt.Color(255, 255, 255));
+        entregarTareaButton.setText("Entregrar Tarea");
+        entregarTareaButton.setBorder(null);
+        entregarTareaButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addTareaButtonMouseClicked(evt);
+                entregarTareaButtonMouseClicked(evt);
             }
         });
 
@@ -78,13 +68,6 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
                 salirButtonMouseClicked(evt);
             }
         });
-
-        calificarButton.setBackground(new java.awt.Color(0, 153, 153));
-        calificarButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        calificarButton.setForeground(new java.awt.Color(255, 255, 255));
-        calificarButton.setText("Calificar Tarea");
-        calificarButton.setBorder(null);
-        calificarButton.setEnabled(false);
 
         bienvenidoLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         bienvenidoLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,23 +85,6 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
         listaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         listaLabel.setText("Lista de Tareas");
 
-        tareasList.setBorder(null);
-        tareasList.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        tareasList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        tareasList.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tareasListMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tareasListMousePressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tareasList);
-
         javax.swing.GroupLayout ListaPanelLayout = new javax.swing.GroupLayout(ListaPanel);
         ListaPanel.setLayout(ListaPanelLayout);
         ListaPanelLayout.setHorizontalGroup(
@@ -127,28 +93,14 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(listaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jScrollPane1)
         );
         ListaPanelLayout.setVerticalGroup(
             ListaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ListaPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(listaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
-
-        eliminarButton.setBackground(new java.awt.Color(0, 153, 153));
-        eliminarButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        eliminarButton.setForeground(new java.awt.Color(255, 255, 255));
-        eliminarButton.setText("Eliminar Tarea");
-        eliminarButton.setBorder(null);
-        eliminarButton.setEnabled(false);
-        eliminarButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                eliminarButtonMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout bgPanelLayout = new javax.swing.GroupLayout(bgPanel);
         bgPanel.setLayout(bgPanelLayout);
@@ -164,10 +116,8 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(bgPanelLayout.createSequentialGroup()
                         .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addTareaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(salirButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(calificarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(eliminarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                            .addComponent(entregarTareaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(salirButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ListaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -181,12 +131,8 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
                 .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(addTareaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(calificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(eliminarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)
+                        .addComponent(entregarTareaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(183, 183, 183)
                         .addComponent(salirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(bgPanelLayout.createSequentialGroup()
@@ -208,58 +154,13 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addTareaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addTareaButtonMouseClicked
-        crearTarea = new VistaAsesor_CrearTarea(controladorTareas);
-
-        crearTarea.setMenuAsesor(this);
-        crearTarea.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        crearTarea.setLocationRelativeTo(null);
-        crearTarea.setVisible(true);
-    }//GEN-LAST:event_addTareaButtonMouseClicked
-
-    private void tareasListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tareasListMouseClicked
-
-    }//GEN-LAST:event_tareasListMouseClicked
-
-    private void tareasListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tareasListMousePressed
-        calificarButton.setEnabled(true);
-        eliminarButton.setEnabled(true);
-    }//GEN-LAST:event_tareasListMousePressed
+    private void entregarTareaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entregarTareaButtonMouseClicked
+        
+    }//GEN-LAST:event_entregarTareaButtonMouseClicked
 
     private void salirButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButtonMouseClicked
         System.exit(0);
     }//GEN-LAST:event_salirButtonMouseClicked
-
-    private void eliminarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarButtonMouseClicked
-        int respuesta = JOptionPane.showConfirmDialog(
-                null, // Ventana padre (null = centro de pantalla)
-                "¿Estás seguro de que quieres eliminar " + tareasList.getSelectedValue() + " ?", // Mensaje
-                "Confirmación", // Título
-                JOptionPane.YES_NO_OPTION, // Tipo de botones
-                JOptionPane.QUESTION_MESSAGE // Icono
-        );
-
-        if (respuesta == JOptionPane.YES_OPTION) {
-            System.out.println("Elegiste Sí. " + tareasList.getSelectedIndex());
-            controladorTareas.eliminarTarea(tareasList.getSelectedIndex());
-        }
-
-        limpiarModelo();
-        listaTareas();
-    }//GEN-LAST:event_eliminarButtonMouseClicked
-
-    public void listaTareas() {
-        DefaultListModel modelo = (DefaultListModel) tareasList.getModel();
-
-        for (String tarea : controladorTareas.filtrarTareas()) {
-            modelo.addElement(tarea);
-        }
-    }
-
-    public void limpiarModelo() {
-        DefaultListModel modelo = new DefaultListModel();
-        tareasList.setModel(modelo);
-    }
     
     public void nameUser(String name){
         nombreLabel.setText(name);
@@ -269,15 +170,11 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ListaPanel;
-    private javax.swing.JButton addTareaButton;
     private javax.swing.JPanel bgPanel;
     private javax.swing.JLabel bienvenidoLabel;
-    private javax.swing.JButton calificarButton;
-    private javax.swing.JButton eliminarButton;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton entregarTareaButton;
     private javax.swing.JLabel listaLabel;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JButton salirButton;
-    private javax.swing.JList<String> tareasList;
     // End of variables declaration//GEN-END:variables
 }

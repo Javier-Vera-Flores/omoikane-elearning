@@ -45,4 +45,9 @@ public class ControladorUsuarios {
         Usuario user = usuarioDAO.getById(id);
         return user.getNombre();
     }
+    
+    public String getTipo(int id){
+        Usuario user = usuarioDAO.getById(id);
+        return user.getClass().getSimpleName();
+    }
 }

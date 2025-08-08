@@ -17,7 +17,6 @@ import omoikane.elearning.Modelo.Examen;
 import omoikane.elearning.Modelo.Tarea;
 import omoikane.elearning.Vista.VistaAsesor;
 import omoikane.elearning.Vista.VistaAsesor_CrearTarea;
-import omoikane.elearning.Vista.VistaAsesor_Menu;
 import omoikane.elearning.Vista.VistaEstudiante;
 import omoikane.elearning.Vista.VistaLogIn;
 
@@ -42,14 +41,6 @@ public class OmoikaneElearning {
         logIn.pack();
         logIn.setLocationRelativeTo(null);
         logIn.setVisible(true);
-
-        /*VistaAsesor_Menu menuAsesor = new VistaAsesor_Menu(controladorTareas);
-
-        menuAsesor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        menuAsesor.pack();
-        menuAsesor.setLocationRelativeTo(null);
-        menuAsesor.setVisible(true);
-        /*INTERFAZ*/
     }
 
 }

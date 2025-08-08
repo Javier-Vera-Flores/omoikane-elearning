@@ -4,7 +4,6 @@
  */
 package omoikane.elearning.Vista;
 
-<<<<<<< HEAD
 import java.awt.Color;
 import static java.lang.Integer.parseInt;
 import javax.swing.JFrame;
@@ -14,22 +13,21 @@ import omoikane.elearning.Controlador.ControladorUsuarios;
 import omoikane.elearning.Modelo.Dao.CalificacionDAO;
 import omoikane.elearning.Modelo.Dao.TareaDAO;
 
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
 /**
  *
  * @author aczay
  */
 public class VistaLogIn extends javax.swing.JFrame {
 
-<<<<<<< HEAD
     TareaDAO tareaDAO;
     CalificacionDAO calificacionDAO = new CalificacionDAO();
-    
+
     ControladorTareas controladorTareas;
     ControladorUsuarios controladorUsuarios;
 
     VistaAsesor_Menu menuAsesor;
+    VistaEstudiante_Menu menuEstudiante;
+
     /**
      * Creates new form Vista
      *
@@ -37,14 +35,6 @@ public class VistaLogIn extends javax.swing.JFrame {
      */
     public VistaLogIn(ControladorUsuarios controladorUsuarios) {
         this.controladorUsuarios = controladorUsuarios;
-
-=======
-    /**
-     * Creates new form Vista
-     */
-    
-    public VistaLogIn() {
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
         initComponents();
     }
 
@@ -88,7 +78,6 @@ public class VistaLogIn extends javax.swing.JFrame {
         userText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         userText.setForeground(new java.awt.Color(204, 204, 204));
         userText.setText("Ingresa ID de usuario");
-<<<<<<< HEAD
         userText.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 userTextMousePressed(evt);
@@ -102,8 +91,6 @@ public class VistaLogIn extends javax.swing.JFrame {
                 userTextKeyTyped(evt);
             }
         });
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
 
         passLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         passLabel.setForeground(new java.awt.Color(51, 51, 51));
@@ -113,7 +100,6 @@ public class VistaLogIn extends javax.swing.JFrame {
         passText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         passText.setForeground(new java.awt.Color(204, 204, 204));
         passText.setText("123456789");
-<<<<<<< HEAD
         passText.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 passTextMousePressed(evt);
@@ -124,8 +110,6 @@ public class VistaLogIn extends javax.swing.JFrame {
                 passTextKeyTyped(evt);
             }
         });
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
 
         accederButton.setBackground(new java.awt.Color(0, 153, 153));
         accederButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -218,7 +202,6 @@ public class VistaLogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void accederButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accederButtonActionPerformed
-<<<<<<< HEAD
         int user = getUser();
         String pass = gerPass();
 
@@ -230,17 +213,12 @@ public class VistaLogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario no Encontrado.", "¡¡ERROR!!", JOptionPane.ERROR_MESSAGE);
         } else if (!controladorUsuarios.validarPass(user, pass)) {
             JOptionPane.showMessageDialog(null, "Contraseña Incorrecta.", "¡¡ERROR!!", JOptionPane.ERROR_MESSAGE);
+        } else if(controladorUsuarios.getTipo(user).equals("Asesor")){
+            System.out.println(controladorUsuarios.getTipo(user));
+            initAsesor(user);
+            this.dispose();
         } else {
-            tareaDAO = new TareaDAO(controladorUsuarios.getIdUser(user));
-            System.out.println(tareaDAO.getIDUsuario());
-            controladorTareas = new ControladorTareas(tareaDAO, calificacionDAO);
-            
-            menuAsesor = new VistaAsesor_Menu(controladorTareas);
-            menuAsesor.nameUser(controladorUsuarios.getNameUser(user));
-            menuAsesor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            menuAsesor.pack();
-            menuAsesor.setLocationRelativeTo(null);
-            menuAsesor.setVisible(true);
+            initEstudiante(user);
             this.dispose();
         }
     }//GEN-LAST:event_accederButtonActionPerformed
@@ -264,7 +242,7 @@ public class VistaLogIn extends javax.swing.JFrame {
         }
 
         if (userText.getText().isEmpty()) {
-            userText.setText("Ingrese su correo");
+            userText.setText("Ingresa ID de usuario");
             userText.setForeground(Color.decode("#E3E3E3"));
         }
     }//GEN-LAST:event_passTextKeyTyped
@@ -288,7 +266,7 @@ public class VistaLogIn extends javax.swing.JFrame {
         }
 
         if (userText.getText().isEmpty()) {
-            userText.setText("Ingrese su correo");
+            userText.setText("Ingresa ID de usuario");
             userText.setForeground(Color.decode("#E3E3E3"));
         }
     }//GEN-LAST:event_passTextMousePressed
@@ -309,19 +287,29 @@ public class VistaLogIn extends javax.swing.JFrame {
     private String gerPass() {
         return String.valueOf(passText.getPassword());
     }
-=======
-        // TODO add your handling code here:
-    }//GEN-LAST:event_accederButtonActionPerformed
 
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
-    /**
-     * @param args the command line arguments
-     */
+    private void initAsesor(int user) {
+        tareaDAO = new TareaDAO(controladorUsuarios.getIdUser(user));
+        System.out.println(tareaDAO.getIDUsuario());
+        controladorTareas = new ControladorTareas(tareaDAO, calificacionDAO);
 
-<<<<<<< HEAD
-=======
+        menuAsesor = new VistaAsesor_Menu(controladorTareas);
+        menuAsesor.nameUser(controladorUsuarios.getNameUser(user));
+        menuAsesor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menuAsesor.pack();
+        menuAsesor.setLocationRelativeTo(null);
+        menuAsesor.setVisible(true);
+    }
 
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
+    private void initEstudiante(int user) {
+        menuEstudiante = new VistaEstudiante_Menu();
+        menuEstudiante.nameUser(controladorUsuarios.getNameUser(user));
+        menuEstudiante.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menuEstudiante.pack();
+        menuEstudiante.setLocationRelativeTo(null);
+        menuEstudiante.setVisible(true);
+   }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BGPanel;
     private javax.swing.JLabel IniciarSesionLabel;
