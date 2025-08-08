@@ -6,10 +6,7 @@ package omoikane.elearning.Vista;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
-<<<<<<< HEAD
 import javax.swing.JOptionPane;
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
 import omoikane.elearning.Controlador.ControladorTareas;
 
 /**
@@ -53,11 +50,7 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
         listaLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tareasList = new javax.swing.JList<>();
-<<<<<<< HEAD
         eliminarButton = new javax.swing.JButton();
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bgPanel.setBackground(new java.awt.Color(0, 153, 153));
@@ -144,7 +137,6 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane1))
         );
 
-<<<<<<< HEAD
         eliminarButton.setBackground(new java.awt.Color(0, 153, 153));
         eliminarButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         eliminarButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,9 +148,6 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
                 eliminarButtonMouseClicked(evt);
             }
         });
-
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
         javax.swing.GroupLayout bgPanelLayout = new javax.swing.GroupLayout(bgPanel);
         bgPanel.setLayout(bgPanelLayout);
         bgPanelLayout.setHorizontalGroup(
@@ -175,12 +164,8 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
                         .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(addTareaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                             .addComponent(salirButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-<<<<<<< HEAD
                             .addComponent(calificarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                             .addComponent(eliminarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-=======
-                            .addComponent(calificarButton, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ListaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -197,13 +182,9 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
                         .addComponent(addTareaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(calificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(eliminarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(111, 111, 111)
-=======
-                        .addGap(147, 147, 147)
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
                         .addComponent(salirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(bgPanelLayout.createSequentialGroup()
@@ -228,11 +209,7 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
     private void addTareaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addTareaButtonMouseClicked
         crearTarea = new VistaAsesor_CrearTarea(controladorTareas);
 
-<<<<<<< HEAD
-        crearTarea.setMenuAsesor(this);
-=======
         crearTarea.setMenuAsesor(this); 
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
         crearTarea.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         crearTarea.setLocationRelativeTo(null);
         crearTarea.setVisible(true);
@@ -244,17 +221,13 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
 
     private void tareasListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tareasListMousePressed
         calificarButton.setEnabled(true);
-<<<<<<< HEAD
         eliminarButton.setEnabled(true);
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
     }//GEN-LAST:event_tareasListMousePressed
 
     private void salirButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirButtonMouseClicked
         System.exit(0);
     }//GEN-LAST:event_salirButtonMouseClicked
 
-<<<<<<< HEAD
     private void eliminarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarButtonMouseClicked
         int respuesta = JOptionPane.showConfirmDialog(
                 null, // Ventana padre (null = centro de pantalla)
@@ -273,8 +246,6 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
         listaTareas();
     }//GEN-LAST:event_eliminarButtonMouseClicked
 
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
     public void listaTareas() {
         DefaultListModel modelo = (DefaultListModel) tareasList.getModel();
 
@@ -287,13 +258,11 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
         DefaultListModel modelo = new DefaultListModel();
         tareasList.setModel(modelo);
     }
-<<<<<<< HEAD
     
     public void nameUser(String name){
         nombreLabel.setText(name);
     }
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
+
     /**
      * @param args the command line arguments
      */
@@ -303,10 +272,7 @@ public class VistaAsesor_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel bgPanel;
     private javax.swing.JLabel bienvenidoLabel;
     private javax.swing.JButton calificarButton;
-<<<<<<< HEAD
     private javax.swing.JButton eliminarButton;
-=======
->>>>>>> af4efc42c30bbafdf96da1bac2d15591b7ed6fca
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel listaLabel;
     private javax.swing.JLabel nombreLabel;
